@@ -65,7 +65,7 @@ class Cita extends Conexion{
         return $resultado;
     }
 
-    public function eliminar(){
+    public function eliminasr(){
         $sql = "UPDATE citas SET cit_situacion = 0 where cit_id = $this->cit_id";
         
         $resultado = self::ejecutar($sql);
