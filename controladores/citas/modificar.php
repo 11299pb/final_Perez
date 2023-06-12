@@ -46,7 +46,7 @@ if($_POST['cit_paciente'] != '' && $_POST['cit_medico'] != '' && $_POST['cit_fec
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <a href="/final_perez/controladores/citas/buscar.php?paci_nombre=<?= $_POST['paci_nombre'] ?>" class="btn btn-info">Regresar al formulario</a>
+                <a href="/final_perez/controladores/citas/modificar.php?paci_nombre=<?= $_POST['paci_nombre'] ?>" class="btn btn-info">Regresar al formulario</a>
             </div>
         </div>
     </div>

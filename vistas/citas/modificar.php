@@ -20,7 +20,7 @@ require_once '../../modelos/Medico.php';
     <div class="container">
         <h1 class="text-center">Modificar cita</h1>
         <div class="row justify-content-center">
-            <form action="/final_perez/controladores/citas/guardar.php" method="POST" class="col-lg-8 border bg-light p-3">
+            <form action="/final_perez/controladores/citas/modificar.php" method="POST" class="col-lg-8 border bg-light p-3">
                 <input type="hidden" name="cit_id">
                 <div class="row mb-3">
                     <div class="col">
