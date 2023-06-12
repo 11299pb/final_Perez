@@ -1,3 +1,23 @@
+<?php
+require '../../modelos/Medico.php';
+require_once '../../modelos/Especialidad.php';
+require_once '../../modelos/Clinica.php';
+try {
+    $medico = new Medico($_GET);
+    $especialidad = new Especialidad();
+    $clinica = new Clinica();
+    $medicos = $medico->buscar();
+    $especialidades = $especialidad->buscar();
+    $clinicas = $clinica->buscar();
+
+} catch (PDOException $e) {
+    $error = $e->getMessage();
+} catch (Exception $e2){
+    $error = $e2->getMessage();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,9 +35,9 @@
                     <thead class="table-dark">
                         <tr>
                             <th>NO. </th>
-                            <th>Nombre</th>
-                            <th>Especialidad</th>
-                            <th>Clinica</th>
+                            <th>NOMBRE</th>
+                            <th>ESPECIALIDAD</th>
+                            <th>CLINICA</th>
                             <th>MODIFICAR</th>
                             <th>ELIMINAR</th>
                         </tr>
@@ -36,9 +56,9 @@
                             <td><?= $key + 1 ?></td>
                             <td><?= $medico['MED_NOMBRE'] ?></td>
                             <td><?= $especialidad['ESP_NOMBRE'] ?></td>
-                            <td><?= $clinica['CLI_NOMBRE'] ?></td>
-                            <td><a class="btn btn-warning w-100" href="/final_perez/vistas/medicos/modificar.php?medico_id=<?= $medico['MED_ID']?>">Modificar</a></td>
-                            <td><a class="btn btn-danger w-100" href="/final_perez/controladores/medicos/eliminar.php?medico_id=<?= $medico['MED_ID']?>">Eliminar</a></td>
+                            <td><?= $clinica['CLIN_NOMBRE'] ?></td>
+                            <td><a class="btn btn-warning w-100" href="/final_perez/vistas/medicos/modificar.php?med_id=<?= $medico['MEDICO_ID']?>">Modificar</a></td>
+                            <td><a class="btn btn-danger w-100" href="/final_perez/controladores/medicos/eliminar.php?med_id=<?= $medico['MEDICO_ID']?>">Eliminar</a></td>
                         </tr>
                         <?php endforeach ?>
                         <?php else :?>
