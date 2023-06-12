@@ -80,7 +80,7 @@ try {
         <div class="row justify-content-center">
             <div class="col-lg-4">
                 <a href="/final_perez/vistas/citas/detalle.php" class="btn btn-info w-100">VER CITAS DE HOY</a><br><br>
-                <a href="/final_perez/vistas/citas/buscar.php" class="btn btn-info w-100">Regresar a la búsqueda</a>
+                <a href="/final_perez/vistas/citas/buscar.php" class="btn btn-info w-100">REGRESAR A LA BUSQUEDA</a>
             </div>
         </div>
     </div>

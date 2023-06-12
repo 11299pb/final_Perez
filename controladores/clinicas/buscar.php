@@ -29,7 +29,7 @@ try {
                     <thead class="table-dark">
                         <tr>
                             <th>NO. </th>
-                            <th>Clinica</th>
+                            <th>CLINICA</th>
                             <th>ELIMINAR</th>
                         </tr>
                     </thead>
