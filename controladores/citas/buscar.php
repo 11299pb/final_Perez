@@ -34,7 +34,7 @@ try {
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <table class="table table-bordered table-hover">
-                    <thead class="table-dark">
+                    <thead class="table-green">
                         <tr>
                             <th>NO.</th>
                             <th>PACIENTE</th>
@@ -64,8 +64,8 @@ try {
                                     <td><?= $cita['CIT_FECHA'] ?></td>
                                     <td><?= $cita['CIT_HORA'] ?></td>
                                     <td><?= $cita['CIT_REFERENCIA'] ?></td>
-                                    <td><a class="btn btn-warning w-100" href="/final_perez/vistas/citas/detalle.php?cita_fecha=<?= $cita['CIT_FECHA'] ?>">VER DETALLE</a></td>
-                                    <td><a class="btn btn-danger w-100" href="/final_perez/controladores/citas/eliminar.php?cita_id=<?= $cita['CIT_ID'] ?>">Eliminar</a></td>
+                                    <td><a class="btn btn-warning w-100" href="/final_perez/vistas/citas/detalle.php?cit_fecha=<?= $cita['CIT_FECHA'] ?>">VER DETALLE</a></td>
+                                    <td><a class="btn btn-danger w-100" href="/final_perez/controladores/citas/eliminar.php?cit_id=<?= $cita['CIT_ID'] ?>">Eliminar</a></td>
                                 </tr>
                             <?php endforeach ?>
                         <?php else : ?>
