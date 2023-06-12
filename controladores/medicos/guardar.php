@@ -1,14 +1,17 @@
 <?php
-require '../../modelos/Paciente.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
+require '../../modelos/Medico.php';
+require '../../modelos/Especialidad.php';
+require '../../modelos/Clinica.php';
 
-if($_POST['paci_nombre'] != '' && $_POST['paci_dpi'] != '' && $_POST['paci_telefono'] != ''){
-
-
+if($_POST['med_nombre'] != '' && $_POST['med_especialidad'] != '' && $_POST['med_clinica'] != ''){
 
     try {
-        $paciente = new Paciente($_POST);
-        $resultado = $paciente->guardar();
+        $medico = new Medico($_POST);
+        $resultado = $medico->guardar();
         $error = "NO se guardó correctamente";
     } catch (PDOException $e) {
         $error = $e->getMessage();
@@ -47,7 +50,7 @@ if($_POST['paci_nombre'] != '' && $_POST['paci_dpi'] != '' && $_POST['paci_telef
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <a href="/final_perez/vistas/pacientes/index.php" class="btn btn-info">Regresar al formulario</a>
+                <a href="/final_perez/vistas/medicos/index.php" class="btn btn-info">Regresar al formulario</a>
             </div>
         </div>
     </div>

@@ -1,14 +1,14 @@
 <?php
-require '../../modelos/Medico.php';
+require '../../modelos/Clinica.php';
 
 
-if($_POST['med_nombre'] != '' && $_POST['med_especialidad'] != '' && $_POST['med_clinica'] != ''){
+if($_POST['clin_nombre'] != ''){
 
 
 
     try {
-        $medico = new Medico($_POST);
-        $resultado = $medico->guardar();
+        $clinica = new Clinica($_POST);
+        $resultado = $clinica->guardar();
         $error = "NO se guardó correctamente";
     } catch (PDOException $e) {
         $error = $e->getMessage();
@@ -47,7 +47,7 @@ if($_POST['med_nombre'] != '' && $_POST['med_especialidad'] != '' && $_POST['med
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <a href="/final_perez/vistas/medicos/index.php" class="btn btn-info">Regresar al formulario</a>
+                <a href="/final_perez/vistas/clinicas/index.php" class="btn btn-info">Regresar al formulario</a>
             </div>
         </div>
     </div>

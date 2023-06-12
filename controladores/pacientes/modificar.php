@@ -1,12 +1,12 @@
 <?php
-require '../../modelos/Medico.php';
+require '../../modelos/Paciente.php';
 
 
-if($_POST['med_nombre'] != '' && $_POST['med_especialidad']  != '' && $_POST['med_clinica']  != '' && $_POST['med_id'] != ''){
+if($_POST['paci_nombre'] != '' && $_POST['paci_dpi']  != '' && $_POST['paci_telefono']  != '' && $_POST['paci_id'] != ''){
 
     try {
-        $medico = new Medico($_POST);
-        $resultado = $medico->modificar();
+        $paciente = new Paciente($_POST);
+        $resultado = $paciente->modificar();
 
     } catch (PDOException $e) {
         $error = $e->getMessage();
@@ -16,6 +16,13 @@ if($_POST['med_nombre'] != '' && $_POST['med_especialidad']  != '' && $_POST['me
 }else{
     $error = "Debe llenar todos los datos";
 }
+
+
+// if($resultado){
+//     echo "Guardado exitosamente";
+// }else{
+//     echo "Ocurrió un error: $error";
+// }
 
 ?>
 <!DOCTYPE html>
@@ -45,7 +52,7 @@ if($_POST['med_nombre'] != '' && $_POST['med_especialidad']  != '' && $_POST['me
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <a href="/final_perez/controladores/medicos/buscar.php?med_nombre=<?= $_POST['nombre_id'] ?>" class="btn btn-info">Regresar al formulario</a>
+                <a href="/final_perez/controladores/pacientes/buscar.php?paci_nombre=<?= $_POST['paci_nombre'] ?>" class="btn btn-info">Regresar al formulario</a>
             </div>
         </div>
     </div>

@@ -1,12 +1,14 @@
 <?php
-require '../../modelos/Especialidad.php';
+require '../../modelos/Paciente.php';
 
 
-if($_POST['esp_nombre'] != ''){
+if($_POST['paci_nombre'] != '' && $_POST['paci_dpi'] != '' && $_POST['paci_telefono'] != ''){
+
+
 
     try {
-        $especialidad = new Especialidad($_POST);
-        $resultado = $especialidad->guardar();
+        $paciente = new Paciente($_POST);
+        $resultado = $paciente->guardar();
         $error = "NO se guardó correctamente";
     } catch (PDOException $e) {
         $error = $e->getMessage();
@@ -17,6 +19,12 @@ if($_POST['esp_nombre'] != ''){
     $error = "Debe llenar todos los datos";
 }
 
+
+// if($resultado){
+//     echo "Guardado exitosamente";
+// }else{
+//     echo "Ocurrió un error: $error";
+// }
 
 ?>
 <!DOCTYPE html>
@@ -46,7 +54,7 @@ if($_POST['esp_nombre'] != ''){
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <a href="/final_perez/vistas/especialidades/index.php" class="btn btn-info">Regresar al formulario</a>
+                <a href="/final_perez/vistas/pacientes/index.php" class="btn btn-info">Regresar al formulario</a>
             </div>
         </div>
     </div>

@@ -1,16 +1,21 @@
 <?php
-require '../../modelos/Especialidad.php';
+require '../../modelos/Medico.php';
 
+
+if($_POST['med_nombre'] != '' && $_POST['med_especialidad']  != '' && $_POST['med_clinica']  != '' && $_POST['med_id'] != ''){
 
     try {
-        $especialidad = new Especialidad($_GET);
-        $resultado = $especialidad->eliminar();
+        $medico = new Medico($_POST);
+        $resultado = $medico->modificar();
 
     } catch (PDOException $e) {
         $error = $e->getMessage();
     } catch (Exception $e2){
         $error = $e2->getMessage();
     }
+}else{
+    $error = "Debe llenar todos los datos";
+}
 
 
 ?>
@@ -29,7 +34,7 @@ require '../../modelos/Especialidad.php';
             <div class="col-lg-6">
                 <?php if($resultado): ?>
                     <div class="alert alert-success" role="alert">
-                        Eliminado exitosamente!
+                        Modificado exitosamente!
                     </div>
                 <?php else :?>
                     <div class="alert alert-danger" role="alert">
@@ -41,7 +46,7 @@ require '../../modelos/Especialidad.php';
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <a href="/final_perez/controladores/especialidades/buscar.php" class="btn btn-info">Regresar al formulario</a>
+                <a href="/final_perez/controladores/medicos/buscar.php?med_nombre=<?= $_POST['med_nombre'] ?>" class="btn btn-info">Regresar al formulario</a>
             </div>
         </div>
     </div>

@@ -3,9 +3,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require '../../modelos/Cita.php';
-require '../../modelos/Detalle.php';
+require '../../modelos/detalle.php';
 require '../../modelos/Medico.php';
-require '../../modelos/Pac.php';
+require '../../modelos/Paciente.php';
 
 
 

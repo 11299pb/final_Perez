@@ -2,31 +2,18 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
-require '../../modelos/Cita.php';
-
-
-if($_POST['cit_paciente'] != '' && $_POST['cit_medico'] != '' && $_POST['cit_fecha'] != '' && $_POST['cit_hora'] != '' && $_POST['cit_referencia'] != ''){
-    
-
-$_POST['cit_fecha']= date('d/m/Y', strtotime($_POST['cit_fecha']));
+require '../../modelos/Especialidad.php';
 
 
     try {
-        $cita = new Cita($_POST);
+        $especialidad = new Especialidad($_GET);
+        $resultado = $especialidad->eliminar();
 
-        $resultado = $cita->guardar();
-        $citas = $cita->buscarPorFecha();
-        $error = "NO se guardó correctamente";
     } catch (PDOException $e) {
         $error = $e->getMessage();
     } catch (Exception $e2){
         $error = $e2->getMessage();
     }
-}else{
-    $error = "Debe llenar todos los datos";
-}
-
 
 ?>
 <!DOCTYPE html>
@@ -44,7 +31,7 @@ $_POST['cit_fecha']= date('d/m/Y', strtotime($_POST['cit_fecha']));
             <div class="col-lg-6">
                 <?php if($resultado): ?>
                     <div class="alert alert-success" role="alert">
-                        Guardado exitosamente!
+                        Eliminado exitosamente!
                     </div>
                 <?php else :?>
                     <div class="alert alert-danger" role="alert">
@@ -56,7 +43,7 @@ $_POST['cit_fecha']= date('d/m/Y', strtotime($_POST['cit_fecha']));
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <a href="/final_perez/vistas/citas/index.php" class="btn btn-info">Regresar al formulario</a>
+                <a href="/final_perez/controladores/especialidades/buscar.php" class="btn btn-info">Regresar al formulario</a>
             </div>
         </div>
     </div>

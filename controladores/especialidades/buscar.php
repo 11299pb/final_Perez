@@ -1,3 +1,20 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+require '../../modelos/Especialidad.php';
+try {
+    $especialidad = new Especialidad($_GET);
+    
+    $especialidades = $especialidad->buscar();
+
+} catch (PDOException $e) {
+    $error = $e->getMessage();
+} catch (Exception $e2){
+    $error = $e2->getMessage();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,30 +32,17 @@
                     <thead class="table-dark">
                         <tr>
                             <th>NO. </th>
-                            <th>Nombre</th>
-                            <th>Especialidad</th>
-                            <th>Clinica</th>
-                            <th>MODIFICAR</th>
+                            <th>ESPECIALIDAD</th>
                             <th>ELIMINAR</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if(count($medicos) > 0):?>
-                        <?php foreach($medicos as $key => $medico) : ?>
-                            <?php
- tr>                           // Obtener la especialidad del médico
-                            $especialidad = $especialidades[$key];
-        
-                            // Obtener la clínica del médico
-                            $clinica = $clinicas[$key];
-                            ?>
-                        <
+                        <?php if(count($especialidades) > 0):?>
+                        <?php foreach($especialidades as $key => $especialidad) : ?>
+                        <tr>
                             <td><?= $key + 1 ?></td>
-                            <td><?= $medico['MED_NOMBRE'] ?></td>
                             <td><?= $especialidad['ESP_NOMBRE'] ?></td>
-                            <td><?= $clinica['CLI_NOMBRE'] ?></td>
-                            <td><a class="btn btn-warning w-100" href="/final_perez/vistas/medicos/modificar.php?medico_id=<?= $medico['MED_ID']?>">Modificar</a></td>
-                            <td><a class="btn btn-danger w-100" href="/final_perez/controladores/medicos/eliminar.php?medico_id=<?= $medico['MED_ID']?>">Eliminar</a></td>
+                            <td><a class="btn btn-danger w-100" href="/final_perez/controladores/especialidades/eliminar.php?esp_id=<?= $especialidad['ESP_ID']?>">Eliminar</a></td>
                         </tr>
                         <?php endforeach ?>
                         <?php else :?>
@@ -52,7 +56,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-4">
-                <a href="/final_perez/vistas/medicos/buscar.php" class="btn btn-info w-100">Regresar a la busqueda</a>
+                <a href="/final_perez/vistas/especialidades/buscar.php" class="btn btn-info w-100">Regresar a la busqueda</a>
             </div>
         </div>
     </div>

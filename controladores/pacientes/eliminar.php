@@ -1,16 +1,24 @@
 <?php
-require '../../modelos/Clinica.php';
+require '../../modelos/Paciente.php';
 
 
     try {
-        $clinica = new Clinica($_GET);
-        $resultado = $clinica->eliminar();
+        $paciente = new Paciente($_GET);
+        $resultado = $paciente->eliminar();
 
     } catch (PDOException $e) {
         $error = $e->getMessage();
     } catch (Exception $e2){
         $error = $e2->getMessage();
     }
+
+
+
+// if($resultado){
+//     echo "Guardado exitosamente";
+// }else{
+//     echo "Ocurrió un error: $error";
+// }
 
 ?>
 <!DOCTYPE html>
@@ -40,7 +48,7 @@ require '../../modelos/Clinica.php';
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <a href="/final_perez/controladores/clinicas/buscar.php" class="btn btn-info">Regresar al formulario</a>
+                <a href="/final_perez/controladores/pacientes/buscar.php" class="btn btn-info">Regresar al formulario</a>
             </div>
         </div>
     </div>

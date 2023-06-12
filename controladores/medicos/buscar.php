@@ -1,9 +1,15 @@
 <?php
-require '../../modelos/Paciente.php';
+
+require '../../modelos/Medico.php';
+require_once '../../modelos/Especialidad.php';
+require_once '../../modelos/Clinica.php';
 try {
-    $paciente = new Paciente($_GET);
-    
-    $pacientes = $paciente->buscar();
+    $medico = new Medico($_GET);
+    $especialidad = new Especialidad();
+    $clinica = new Clinica();
+    $medicos = $medico->buscar();
+    $especialidades = $especialidad->buscar();
+    $clinicas = $clinica->buscar();
     // echo "<pre>";
     // var_dump($clientes);
     // echo "</pre>";
@@ -34,22 +40,29 @@ try {
                         <tr>
                             <th>NO. </th>
                             <th>NOMBRE</th>
-                            <th>DPI</th>
-                            <th>TELEFONO</th>
+                            <th>ESPECIALIDAD</th>
+                            <th>CLINICA</th>
                             <th>MODIFICAR</th>
                             <th>ELIMINAR</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if(count($pacientes) > 0):?>
-                        <?php foreach($pacientes as $key => $paciente) : ?>
-                        <tr>
+                        <?php if(count($medicos) > 0):?>
+                        <?php foreach($medicos as $key => $medico) : ?>
+                            <?php
+ tr>                           // Obtener la especialidad del médico
+                            $especialidad = $especialidades[$key];
+        
+                            // Obtener la clínica del médico
+                            $clinica = $clinicas[$key];
+                            ?>
+                        <
                             <td><?= $key + 1 ?></td>
-                            <td><?= $paciente['PACI_NOMBRE'] ?></td>
-                            <td><?= $paciente['PACI_DPI'] ?></td>
-                            <td><?= $paciente['PACI_TELEFONO'] ?></td>
-                            <td><a class="btn btn-warning w-100" href="/final_perez/vistas/pacientes/modificar.php?paciente_id=<?= $paciente['PACI_ID']?>">Modificar</a></td>
-                            <td><a class="btn btn-danger w-100" href="/final_perez/controladores/pacientes/eliminar.php?paciente_id=<?= $paciente['PACI_ID']?>">Eliminar</a></td>
+                            <td><?= $medico['MED_NOMBRE'] ?></td>
+                            <td><?= $especialidad['ESP_NOMBRE'] ?></td>
+                            <td><?= $clinica['CLIN_NOMBRE'] ?></td>
+                            <td><a class="btn btn-warning w-100" href="/final_perez/vistas/medicos/modificar.php?medico_id=<?= $medico['MED_ID']?>">Modificar</a></td>
+                            <td><a class="btn btn-danger w-100" href="/final_perez/controladores/medicos/eliminar.php?medico_id=<?= $medico['MED_ID']?>">Eliminar</a></td>
                         </tr>
                         <?php endforeach ?>
                         <?php else :?>
@@ -63,7 +76,7 @@ try {
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-4">
-                <a href="/final_perez/vistas/pacientes/buscar.php" class="btn btn-info w-100">Volver a la busqueda</a>
+                <a href="/final_perez/vistas/medicos/buscar.php" class="btn btn-info w-100">Regresar a la busqueda</a>
             </div>
         </div>
     </div>

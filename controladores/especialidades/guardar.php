@@ -1,16 +1,24 @@
 <?php
-require '../../modelos/Paciente.php';
+require '../../modelos/Especialidad.php';
+
+
+if($_POST['esp_nombre'] != ''){
+
 
 
     try {
-        $paciente = new Paciente($_GET);
-        $resultado = $paciente->eliminar();
-
+        $especialidad = new Especialidad($_POST);
+        $resultado = $especialidad->guardar();
+        $error = "NO se guardó correctamente";
     } catch (PDOException $e) {
         $error = $e->getMessage();
     } catch (Exception $e2){
         $error = $e2->getMessage();
     }
+}else{
+    $error = "Debe llenar todos los datos";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -27,19 +35,18 @@ require '../../modelos/Paciente.php';
             <div class="col-lg-6">
                 <?php if($resultado): ?>
                     <div class="alert alert-success" role="alert">
-                        Eliminado exitosamente!
+                        Guardado exitosamente!
                     </div>
                 <?php else :?>
                     <div class="alert alert-danger" role="alert">
                         Ocurrió un error: <?= $error ?>
                     </div>
-                <?php endif ?>
-              
+                <?php endif ?>           
             </div>
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <a href="/final_perez/controladores/pacientes/buscar.php" class="btn btn-info">Regresar al formulario</a>
+                <a href="/final_perez/vistas/especialidades/index.php" class="btn btn-info">Regresar al formulario</a>
             </div>
         </div>
     </div>
