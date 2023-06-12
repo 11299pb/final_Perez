@@ -16,11 +16,7 @@ try {
     $citas = $cita->buscar();
     $detalles = $detalle->buscar();
     $medicos = $medico->buscar();
-    // echo "<pre>";
-    // var_dump($clientes);
-    // echo "</pre>";
-    // exit;
-    // $error = "NO se guardó correctamente";
+   
 } catch (PDOException $e) {
     $error = $e->getMessage();
 } catch (Exception $e2){

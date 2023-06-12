@@ -1,7 +1,6 @@
 <?php
 require '../../modelos/Cita.php';
 
-
     try {
         $cita = new Cita($_GET);
         $resultado = $cita->eliminar();

@@ -36,14 +36,14 @@ try {
                 <table class="table table-bordered table-hover">
                     <thead class="table-green">
                         <tr>
-                            <th>NO.</th>
-                            <th>PACIENTE</th>
+                            <th>No.</th>
+                            <th>Paciente</th>
                             <th>DPI</th>
-                            <th>TELÉFONO</th>
-                            <th>MÉDICO</th>
-                            <th>FECHA CITA</th>
-                            <th>HORA</th>
-                            <th>REFERIDO</th>
+                            <th>Telefono</th>
+                            <th>Medico</th>
+                            <th>Fecha de la Cita</th>
+                            <th>Hora</th>
+                            <th>Referido</th>
                             <th>MODIFICAR</th>
                             <th>ELIMINAR</th>
                         </tr>

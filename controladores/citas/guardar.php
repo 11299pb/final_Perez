@@ -5,21 +5,14 @@ error_reporting(E_ALL);
 require '../../modelos/Cita.php';
 
 
-
 if($_POST['cit_paciente'] != '' && $_POST['cit_medico'] != '' && $_POST['cit_fecha'] != '' && $_POST['cit_hora'] != '' && $_POST['cit_referencia'] != ''){
     
-//    $_POST['cita_fecha']= '2/2/2023';
-
 
 $_POST['cit_fecha']= date('d/m/Y', strtotime($_POST['cit_fecha']));
 
 
     try {
         $cita = new Cita($_POST);
-        // Formatear la fecha y hora en el formato correcto
-      
-
-        // Asignar el valor formateado al campo cita_fecha
 
         $resultado = $cita->guardar();
         $citas = $cita->buscarPorFecha();
