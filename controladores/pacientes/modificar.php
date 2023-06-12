@@ -18,12 +18,6 @@ if($_POST['paci_nombre'] != '' && $_POST['paci_dpi']  != '' && $_POST['paci_tele
 }
 
 
-// if($resultado){
-//     echo "Guardado exitosamente";
-// }else{
-//     echo "Ocurrió un error: $error";
-// }
-
 ?>
 <!DOCTYPE html>
 <html lang="es">

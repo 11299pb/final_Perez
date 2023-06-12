@@ -4,11 +4,6 @@ try {
     $paciente = new Paciente($_GET);
     
     $pacientes = $paciente->buscar();
-    // echo "<pre>";
-    // var_dump($clientes);
-    // echo "</pre>";
-    // exit;
-    // $error = "NO se guardó correctamente";
 } catch (PDOException $e) {
     $error = $e->getMessage();
 } catch (Exception $e2){
