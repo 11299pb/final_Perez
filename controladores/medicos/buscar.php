@@ -61,8 +61,8 @@ try {
                             <td><?= $medico['MED_NOMBRE'] ?></td>
                             <td><?= $especialidad['ESP_NOMBRE'] ?></td>
                             <td><?= $clinica['CLIN_NOMBRE'] ?></td>
-                            <td><a class="btn btn-warning w-100" href="/final_perez/vistas/medicos/modificar.php?medico_id=<?= $medico['MED_ID']?>">Modificar</a></td>
-                            <td><a class="btn btn-danger w-100" href="/final_perez/controladores/medicos/eliminar.php?medico_id=<?= $medico['MED_ID']?>">Eliminar</a></td>
+                            <td><a class="btn btn-warning w-100" href="/final_perez/vistas/medicos/modificar.php?med_id=<?= $medico['MED_ID']?>">Modificar</a></td>
+                            <td><a class="btn btn-danger w-100" href="/final_perez/controladores/medicos/eliminar.php?med_id=<?= $medico['MED_ID']?>">Eliminar</a></td>
                         </tr>
                         <?php endforeach ?>
                         <?php else :?>

@@ -1,11 +1,25 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require '../../modelos/Medico.php';
+require '../../modelos/Especialidad.php';
+require '../../modelos/Clinica.php';
+
 try {
     if(isset($_GET['med_id']) && $_GET['med_id'] != ''){
 
-        $med_id = $_GET['med_id'];
-        $medico = new Medico(["med_id" => $med_id]);
-        $medicos = $medico->buscar(); }
+        $medic_id = $_GET['med_id'];
+        $medico = new Medico(["med_id" => $medic_id]);
+
+        $especialidad = new Especialidad($_GET);
+        $clinica = new Clinica($_GET);
+
+        $medicos = $medico->buscar(); 
+        $especialidades = $especialidad->buscar(); 
+        $clinicas = $clinica->buscar(); 
+
+    }
        
     } catch (PDOException $e) {
         $error = $e->getMessage();
@@ -22,19 +36,29 @@ try {
                 <div class="row mb-3">
                     <div class="col">
                         <label for="med_nombre">Nombre del medico</label>
-                        <input type="text" name="med_nombre" id="med_nombre" class="form-control" required>
+                        <input type="text" name="med_nombre" id="med_nombre" value="<?= $medicos[0]['MED_NOMBRE'] ?>" class="form-control" required>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         <label for="med_especialidad">Especialidad</label>
-                        <input type="text" name="med_especialidad" id="med_especialidad" class="form-control" required>
+                        <select name="med_especialidad" id="med_especialidad" class="form-control">
+                            <option value="">SELECCIONE...</option>
+                            <?php foreach ($especialidades as $key => $especialidad) : ?>
+                                <option value="<?= $especialidad['ESP_ID'] ?>"><?= $especialidad['ESP_NOMBRE'] ?></option>
+                            <?php endforeach?>
+                        </select>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         <label for="med_clinica">Clinica</label>
-                        <input type="text" name="med_clinica" id="med_clinica" class="form-control" required>
+                        <select name="med_clinica" id="med_clinica" class="form-control">
+                            <option value="">SELECCIONE...</option>
+                            <?php foreach ($clinicas as $key => $clinica) : ?>
+                                <option value="<?= $clinica['CLIN_ID'] ?>"><?= $clinica['CLIN_NOMBRE'] ?></option>
+                            <?php endforeach?>
+                        </select>
                     </div>
                 </div>
                 <div class="row mb-3">

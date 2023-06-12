@@ -24,7 +24,7 @@ require '../../modelos/Cita.php';
                 <table class="table table-bordered custom-bordered-table">
                     <thead>
                         <tr class="text-center table-primary">
-                            <th colspan="6">HOSPITAL CITAS</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -39,12 +39,12 @@ require '../../modelos/Cita.php';
                                     </tbody>
                                     </table>
                                 <?php endif; ?>
-                                <table class="table table-bordered">
+                                <table class="table table-pink">
                                     <thead>
-                                        <tr class="text-center table-secondary">
+                                        <tr class="text-center table-pink">
                                             <th colspan="6">CLÍNICA: <?= $fila['CLIN_NOMBRE'] ?> (<?= $fila['MED_NOMBRE'] ?>)</th>
                                         </tr>
-                                        <tr class="text-center table-secondary">
+                                        <tr class="text-center table-secundary">
                                             <th>NO</th>
                                             <th>PACIENTE</th>
                                             <th>DPI</th>
@@ -62,7 +62,7 @@ require '../../modelos/Cita.php';
                                 <td><?= $fila['PACI_TELEFONO'] ?></td>
                                 <td><?= $fila['CIT_HORA'] ?></td>
                                 <td><?= $fila['CIT_REFERENCIA'] ?></td>
-                            </tr class="text-center table-secondary">
+                            </tr class="text-center table-primary">
                             <?php $clinicaActual = $fila['CLIN_NOMBRE']; $medicoActual = $fila['MED_NOMBRE']; ?>
                         <?php endforeach ?>
                         </tbody>
