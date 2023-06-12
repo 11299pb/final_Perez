@@ -1,11 +1,11 @@
 <?php
 require '../../modelos/Medico.php';
 try {
-    if(isset($_GET['paci_id']) && $_GET['paci_id'] != ''){
+    if(isset($_GET['med_id']) && $_GET['med_id'] != ''){
 
-        $paci_id = $_GET['paci_id'];
-        $paciente = new Paciente(["paci_id" => $paci_id]);
-        $pacientes = $paciente->buscar(); }
+        $med_id = $_GET['med_id'];
+        $medico = new Medico(["med_id" => $med_id]);
+        $medicos = $medico->buscar(); }
        
     } catch (PDOException $e) {
         $error = $e->getMessage();
@@ -17,8 +17,8 @@ try {
     <div class="container">
         <h1 class="text-center">Modificar Medicos</h1>
         <div class="row justify-content-center">
-            <form action="/final_perez/controladores/medicos/guardar.php" method="POST" class="col-lg-8 border bg-light p-3">
-                <input type="hidden" name="medico_id">
+            <form action="/final_perez/controladores/medicos/modificar.php" method="POST" class="col-lg-8 border bg-light p-3">
+            <input type="hidden" name="med_id" value="<?= $medicos[0]['MED_ID'] ?>">
                 <div class="row mb-3">
                     <div class="col">
                         <label for="med_nombre">Nombre del medico</label>
