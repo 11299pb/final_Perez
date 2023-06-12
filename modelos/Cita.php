@@ -75,8 +75,8 @@ class Cita extends Conexion{
     public function busqueda(){
         
 
-        $sql = " SELECT * FROM citas  inner join pacientes on paci_id = cit_paciente 
-        inner join medicos on med_id = cit_med inner join clinicas on clin_id = med_clinica ";
+        $sql = "  SELECT * FROM citas  inner join pacientes on paci_id = cit_paciente 
+        inner join medicos on med_id = cit_medico inner join clinicas on clin_id = med_clinica ";
 
 
         $resultado = self::servir($sql);
