@@ -52,21 +52,20 @@ try {
                         <?php if (count($citas) > 0) : ?>
                             <?php foreach ($citas as $key => $cita) : ?>
                                 <?php
-                                    // Obtener el paciente y médico correspondiente utilizando los índices adecuados
                                     $paciente = $pacientes[$key];
                                     $medico = $medicos[$key];
                                 ?>
                                 <tr>
                                     <td><?= $key + 1 ?></td>
-                                    <td><?= $paciente['PACIENTE_NOMBRE'] ?></td>
-                                    <td><?= $paciente['PACIENTE_DPI'] ?></td>
-                                    <td><?= $paciente['PACIENTE_TELEFONO'] ?></td>
-                                    <td><?= $medico['MEDICO_NOMBRE'] ?></td>
-                                    <td><?= $cita['CITA_FECHA'] ?></td>
-                                    <td><?= $cita['CITA_HORA'] ?></td>
-                                    <td><?= $cita['CITA_REFERENCIA'] ?></td>
-                                    <td><a class="btn btn-warning w-100" href="/final_caaljuc/vistas/citas/detalle.php?cita_fecha=<?= $cita['CITA_FECHA'] ?>">VER DETALLE</a></td>
-                                    <td><a class="btn btn-danger w-100" href="/final_caaljuc/controladores/citas/eliminar.php?cita_id=<?= $cita['CITA_ID'] ?>">Eliminar</a></td>
+                                    <td><?= $paciente['PACI_NOMBRE'] ?></td>
+                                    <td><?= $paciente['PACI_DPI'] ?></td>
+                                    <td><?= $paciente['PACI_TELEFONO'] ?></td>
+                                    <td><?= $medico['MED_NOMBRE'] ?></td>
+                                    <td><?= $cita['CIT_FECHA'] ?></td>
+                                    <td><?= $cita['CIT_HORA'] ?></td>
+                                    <td><?= $cita['CIT_REFERENCIA'] ?></td>
+                                    <td><a class="btn btn-warning w-100" href="/final_perez/vistas/citas/detalle.php?cita_fecha=<?= $cita['CIT_FECHA'] ?>">VER DETALLE</a></td>
+                                    <td><a class="btn btn-danger w-100" href="/final_perez/controladores/citas/eliminar.php?cita_id=<?= $cita['CIT_ID'] ?>">Eliminar</a></td>
                                 </tr>
                             <?php endforeach ?>
                         <?php else : ?>
@@ -80,8 +79,8 @@ try {
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-4">
-                <a href="/final_caaljuc/vistas/citas/detalle.php" class="btn btn-info w-100">VER LAS CITAS DE HOY</a><br><br>
-                <a href="/final_caaljuc/vistas/citas/buscar.php" class="btn btn-info w-100">Regresar a la búsqueda</a>
+                <a href="/final_perez/vistas/citas/detalle.php" class="btn btn-info w-100">VER CITAS DE HOY</a><br><br>
+                <a href="/final_perez/vistas/citas/buscar.php" class="btn btn-info w-100">Regresar a la búsqueda</a>
             </div>
         </div>
     </div>
