@@ -118,6 +118,6 @@ require '../../modelos/Cita.php';
 <center>
 <div class="row">
         <div class="col-lg-12">
-            <a href="/final_perez/vistas/citas/index.php" class="btn btn-info">Regresar al formulario</a>
+            <a href="/final_caaljuc/vistas/citas/index.php" class="btn btn-info">Regresar al formulario</a>
         </div>
     </div></center>>
