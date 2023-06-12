@@ -1,17 +1,16 @@
 <?php
-require '../../modelos/Medico.php';
+require '../../modelos/Paciente.php';
 
 
     try {
-        $medico = new Medico($_GET);
-        $resultado = $medico->eliminar();
+        $paciente = new Paciente($_GET);
+        $resultado = $paciente->eliminar();
 
     } catch (PDOException $e) {
         $error = $e->getMessage();
     } catch (Exception $e2){
         $error = $e2->getMessage();
     }
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -40,7 +39,7 @@ require '../../modelos/Medico.php';
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <a href="/final_perez/controladores/medicos/buscar.php" class="btn btn-info">Regresar al formulario</a>
+                <a href="/final_perez/controladores/pacientes/buscar.php" class="btn btn-info">Regresar al formulario</a>
             </div>
         </div>
     </div>

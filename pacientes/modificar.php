@@ -1,16 +1,21 @@
 <?php
-require '../../modelos/Medico.php';
+require '../../modelos/Paciente.php';
 
+
+if($_POST['paci_nombre'] != '' && $_POST['paci_dpi']  != '' && $_POST['paci_telefono']  != '' && $_POST['paci_id'] != ''){
 
     try {
-        $medico = new Medico($_GET);
-        $resultado = $medico->eliminar();
+        $paciente = new Paciente($_POST);
+        $resultado = $paciente->modificar();
 
     } catch (PDOException $e) {
         $error = $e->getMessage();
     } catch (Exception $e2){
         $error = $e2->getMessage();
     }
+}else{
+    $error = "Debe llenar todos los datos";
+}
 
 ?>
 <!DOCTYPE html>
@@ -28,7 +33,7 @@ require '../../modelos/Medico.php';
             <div class="col-lg-6">
                 <?php if($resultado): ?>
                     <div class="alert alert-success" role="alert">
-                        Eliminado exitosamente!
+                        Modificado exitosamente!
                     </div>
                 <?php else :?>
                     <div class="alert alert-danger" role="alert">
@@ -40,7 +45,7 @@ require '../../modelos/Medico.php';
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <a href="/final_perez/controladores/medicos/buscar.php" class="btn btn-info">Regresar al formulario</a>
+                <a href="/final_perez/controladores/pacientes/buscar.php?paciente_nombre=<?= $_POST['paci_nombre'] ?>" class="btn btn-info">Regresar al formulario</a>
             </div>
         </div>
     </div>
