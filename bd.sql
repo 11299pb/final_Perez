@@ -45,14 +45,7 @@ CREATE TABLE citas (
     FOREIGN KEY (cit_medico) REFERENCES medicos (med_id)
 )
 
-create table diagnosticos(
-    diag_id serial not null,
-    diag_cita integer not null,
-    diag_descripcion varchar(100) not null,
-    diag_situacion smallint not null default 1,
-    primary key (diag_id),
-    foreign key (diag_cita) REFERENCES citas (cit_id)
-)
+
 create table detalles(
     det_id serial not null,
     det_cita integer not null,
