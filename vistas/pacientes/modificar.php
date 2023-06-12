@@ -1,9 +1,11 @@
 <?php
 require '../../modelos/Paciente.php';
-    try {
-        $paciente = new Paciente($_GET);
+try {
+    if(isset($_GET['paci_id']) && $_GET['paci_id'] != ''){
 
-        $pacientes = $paciente->buscar();
+        $paci_id = $_GET['paci_id'];
+        $paciente = new Paciente(["paci_id" => $paci_id]);
+        $pacientes = $paciente->buscar(); }
        
     } catch (PDOException $e) {
         $error = $e->getMessage();
@@ -16,7 +18,8 @@ require '../../modelos/Paciente.php';
         <h1 class="text-center">MODIFICACION DE PACIENTES</h1>
         <div class="row justify-content-center">
             <form action="/final_perez/controladores/pacientes/modificar.php" method="POST" class="col-lg-8 border bg-light p-3">
-                <input type="hidden" name="medico_id">
+            <input type="hidden" name="paci_id" value="<?= $pacientes[0]['PACI_ID'] ?>">
+
                 <div class="row mb-3">
                     <div class="col">
                         <label for="paci_nombre">NOMBRE DEL PACIENTE</label>

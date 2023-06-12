@@ -1,9 +1,11 @@
 <?php
 require '../../modelos/Medico.php';
-    try {
-        $medico = new Medico($_GET);
+try {
+    if(isset($_GET['paci_id']) && $_GET['paci_id'] != ''){
 
-        $medicos = $medico->buscar();
+        $paci_id = $_GET['paci_id'];
+        $paciente = new Paciente(["paci_id" => $paci_id]);
+        $pacientes = $paciente->buscar(); }
        
     } catch (PDOException $e) {
         $error = $e->getMessage();
