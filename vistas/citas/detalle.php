@@ -24,90 +24,54 @@ require '../../modelos/Cita.php';
                 <table class="table table-bordered custom-bordered-table">
                     <thead>
                         <tr class="text-center table-primary">
-                            <th colspan="6">HOSPITAL "LA ESPERANZA" CITAS</th>
+                            <th colspan="6">HOSPITAL CITAS</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="text-center table-primary">
-                            <td colspan="6"><center>CITAS PARA EL DIA DE HOY (<?= $fecha?>) </center></td>
-                            
-                        </tr>
-                        </tr>
-
-                        <tr class="text-center table-dark">
-                            <td colspan="6"><?= $busqueda[1]['CLIN_NOMBRE'] ?>(DOCTOR <?= $busqueda[1]['MED_NOMBRE'] ?>)</td>
-                        </tr>
-                        <tr class="text-center table-light">
-                            <th>NO.</th>
-                            <th>PACIENTE</th>
-                            <th>DPI</th>
-                            <th>TELEFONO</th>
-                            <th>HORA DE LA CITA</th>
-                            <th>REFERIDO SI / NO</th>
-                        </tr >
-                        <?php if (!empty($busqueda) && count($busqueda) > 0) : ?>
-                            <?php $citasEncontradas = false; ?>
-                            <?php foreach($busqueda as $key => $fila) : ?>
-                                <?php if ($fila['CIT_MEDICO'] == 1 && $fila['MED_CLINICA'] = 1) : ?>
-                                    <?php $citasEncontradas = true; ?>
-                                    <tr class="text-center table-secondary">
-                                        <td><?= $key + 1 ?></td>
-                                        <td><?= $fila['PACI_NOMBRE'] ?></td>
-                                        <td><?= $fila['PACI_DPI'] ?></td>
-                                        <td><?= $fila['PACI_TELEFONO'] ?></td>
-                                        <td><?= $fila['CIT_HORA'] ?></td>
-                                        <td><?= $fila['CIT_REFERENCIA'] ?></td>
-                                    </tr>
-                                <?php endif ?>
-                            <?php endforeach ?>
-                            <?php if (!$citasEncontradas) : ?>
-                                <tr class="text-center table-secondary">
-                                    <td colspan="6"><center>SIN CITAS</center></td>
-                                </tr>
-                            <?php endif ?>
-                        <?php else : ?>
+                    <tr class="text-center table-dark">
+                        <td colspan="6"><center>CITAS PARA EL DÍA DE HOY (<?= $fecha ?>)</center></td>
+                    </tr>
+                    <?php if (!empty($busqueda)): ?>
+                        <?php $clinicaActual = ''; $medicoActual = ''; ?>
+                        <?php foreach ($busqueda as $key => $fila) : ?>
+                            <?php if ($clinicaActual != $fila['CLIN_NOMBRE'] || $medicoActual != $fila['MED_NOMBRE']): ?>
+                                <?php if ($key > 0): ?>
+                                    </tbody>
+                                    </table>
+                                <?php endif; ?>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr class="text-center table-secondary">
+                                            <th colspan="6">CLÍNICA: <?= $fila['CLIN_NOMBRE'] ?> (<?= $fila['MED_NOMBRE'] ?>)</th>
+                                        </tr>
+                                        <tr class="text-center table-secondary">
+                                            <th>NO</th>
+                                            <th>PACIENTE</th>
+                                            <th>DPI</th>
+                                            <th>TELÉFONO</th>
+                                            <th>HORA DE LA CITA</th>
+                                            <th>REFERIDO (SI/NO)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                            <?php endif; ?>
                             <tr class="text-center table-secondary">
-                                <td colspan="6"><center>SIN CITAS</center></td>
-                            </tr>
-                        <?php endif ?>
-
-                        <tr class="text-center table-dark">
-                            <td colspan="6"><?= $busqueda[3]['CLIN_NOMBRE'] ?>(DOCTOR <?= $busqueda[3]['MED_NOMBRE'] ?>)</td>
+                                <td><?= $key + 1 ?></td>
+                                <td><?= $fila['PACI_NOMBRE'] ?></td>
+                                <td><?= $fila['PACI_DPI'] ?></td>
+                                <td><?= $fila['PACI_TELEFONO'] ?></td>
+                                <td><?= $fila['CIT_HORA'] ?></td>
+                                <td><?= $fila['CIT_REFERENCIA'] ?></td>
+                            </tr class="text-center table-secondary">
+                            <?php $clinicaActual = $fila['CLIN_NOMBRE']; $medicoActual = $fila['MED_NOMBRE']; ?>
+                        <?php endforeach ?>
+                        </tbody>
+                        </table>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="6"><center>SIN CITAS</center></td>
                         </tr>
-                        <tr class="text-center table-light">
-                            <th>NO.</th>
-                            <th>PACIENTE</th>
-                            <th>DPI</th>
-                            <th>TELEFONO</th>
-                            <th>HORA DE LA CITA</th>
-                            <th>REFERIDO SI / NO</th>
-                        </tr>
-                        <?php if (!empty($busqueda) && count($busqueda) > 0) : ?>
-                            <?php $citasEncontradas = false; ?>
-                            <?php $key = 0; ?>
-                            <?php foreach($busqueda as $key => $fila) : ?>
-                                <?php if ($fila['CIT_MEDICO'] == 2 && $fila['MED_CLINICA'] = 2) : ?>
-                                    <?php $citasEncontradas = true; ?>
-                                    <tr class="text-center table-secondary">
-                                        <td><?= $key + 1 ?></td>
-                                        <td><?= $fila['PACI_NOMBRE'] ?></td>
-                                        <td><?= $fila['PACI_DPI'] ?></td>
-                                        <td><?= $fila['PACI_TELEFONO'] ?></td>
-                                        <td><?= $fila['CIT_HORA'] ?></td>
-                                        <td><?= $fila['CIT_REFERENCIA'] ?></td>
-                                    </tr>
-                                <?php endif ?>
-                            <?php endforeach ?>
-                            <?php if (!$citasEncontradas) : ?>
-                                <tr class="text-center table-secondary">
-                                    <td colspan="6"><center>SIN CITAS</center></td>
-                                </tr>
-                            <?php endif ?>
-                        <?php else : ?>
-                            <tr class="text-center table-secondary">
-                                <td colspan="6"><center>SIN CITAS</center></td>
-                            </tr>
-                        <?php endif ?>
+                    <?php endif ?>
                     </tbody>
                 </table>
             </div>
@@ -118,6 +82,6 @@ require '../../modelos/Cita.php';
 <center>
 <div class="row">
         <div class="col-lg-12">
-            <a href="/final_caaljuc/vistas/citas/index.php" class="btn btn-info">Regresar al formulario</a>
+            <a href="/final_perez/vistas/citas/index.php" class="btn btn-info">Regresar al formulario</a>
         </div>
-    </div></center>>
+    </div></center>

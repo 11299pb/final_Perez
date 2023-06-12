@@ -21,11 +21,12 @@ require_once '../../modelos/Medico.php';
 <?php include_once '../../includes/header.php'?>
 <?php include_once '../../includes/navbar.php'?>
     <div class="container">
-        <h1 class="text-center">Formulario de ingreso de Citas</h1>
-        <div class="row justify-content-center">
-            <form action="/final_perez/controladores/citas/guardar.php" method="POST" class="col-lg-8 border bg-light p-3">
+        
+        <BR><div class="row justify-content-center">
+           <BR> <form action="/final_perez/controladores/citas/guardar.php" method="POST" class="col-lg-8 border bg-light p-3">
                 <div class="row mb-3">
                     <div class="col">
+                    <h1 class="text-center">FORMULARIO INGRESO DE CITAS</h1>
                         <label for="cit_paciente">Nombre del paciente</label>
                         <select name="cit_paciente" id="cit_paciente" class="form-control">
                             <option value="">SELECCIONE...</option>
@@ -49,7 +50,7 @@ require_once '../../modelos/Medico.php';
                 <div class="row mb-3">
                     <div class="col">
                         <label for="cit_fecha">Fecha de la cita</label>
-                        <input type="date" value="<?= date('Y-m-d') ?>" name="cit_fecha" id="cit_fecha" class="form-control">
+                        <input type="date" value="<?= date('d/m/Y') ?>" name="cit_fecha" id="cit_fecha" class="form-control">
                     </div>
                 </div>
                 <div class="row mb-3">

@@ -46,7 +46,7 @@ if($_POST['med_nombre'] != '' && $_POST['med_especialidad']  != '' && $_POST['me
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <a href="/final_perez/controladores/medicos/buscar.php?med_nombre=<?= $_POST['med_nombre'] ?>" class="btn btn-info">Regresar al formulario</a>
+                <a href="/final_perez/controladores/medicos/modificar.php?med_nombre=<?= $_POST['med_nombre'] ?>" class="btn btn-info">Regresar al formulario</a>
             </div>
         </div>
     </div>
