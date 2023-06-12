@@ -53,7 +53,7 @@ try {
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-4">
-                <a href="/final_perez/vistas/clinicas/buscar.php" class="btn btn-info w-100">Regresar a la busqueda</a>
+                <a href="/final_perez/vistas/clinicas/buscar.php" class="btn btn-info w-100">REGRESAR A LA BUSQUEDA</a>
             </div>
         </div>
     </div>
