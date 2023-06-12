@@ -17,11 +17,12 @@ try {
 ?>
 <?php include_once '../../includes/header.php'?>
 <?php include_once '../../includes/navbar.php'?>
-    <div class="container">
-        <h1 class="text-center" style="font-family: 'Arial', sans-serif; color: #333;">Formulario de ingreso de Médicos</h1>
+    <BR><div class="container">
+       
         <div class="row justify-content-center">
             <form action="/final_perez/controladores/medicos/guardar.php" method="POST" class="col-lg-8 border bg-light p-3" style="font-family: 'Arial', sans-serif; color: #333;">
                 <div class="row mb-3">
+                <h1 class="text-center" style="font-family: 'Arial', sans-serif; color: #333;">Formulario de ingreso de Médicos</h1>
                     <div class="col">
                         <label for="med_nombre">Nombre del médico</label>
                         <input type="text" name="med_nombre" id="med_nombre" class="form-control">
